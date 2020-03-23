@@ -10,8 +10,8 @@ function Gallery({pictures}) {
                               naturalSlideHeight={60}
                               totalSlides={pictures.length}
                               infinite={true}
-                              // isPlaying={true}
-                              // interval={10000}
+                              isPlaying={true}
+                              interval={3000}
                               touchEnabled={true}>
                 <ButtonBack className={styles.button}>Previous</ButtonBack>{'/'}
                 <ButtonNext className={styles.button}>Next</ButtonNext>
