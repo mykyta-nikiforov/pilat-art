@@ -1,6 +1,8 @@
 .navbar {
+    top: 0;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 100px;
+    padding-left: 20px;
     width: 200px;
     position: fixed;
     height: 100%;
@@ -8,9 +10,15 @@
     /*background-color: blueviolet;*/
 }
 
-.navbar a{
+.navbar a:not(name){
     display: block;
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
     color: black;
+}
+
+.name {
+    display: block;
+    font-size: 47px;
+    font-weight: bold;
 }

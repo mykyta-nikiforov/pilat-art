@@ -1,3 +1,36 @@
 .slider {
-    max-width: 800px;
+    /*height: 500px;*/
+    /*width: auto;*/
+    /*background-color: blue;*/
+}
+
+.slide {
+    /*height: 60%;*/
+}
+
+.button {
+    display: inline-block;
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    outline:none;
+}
+
+
+.imageContainer {
+    height: 500px;
+}
+
+
+.imageContainer img {
+    margin-top: 7px;
+    max-height: 500px;
+    width: auto;
+}
+
+.description {
+}
+
+.description p name {
+    font-style: italic;
 }

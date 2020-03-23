@@ -2,23 +2,22 @@ import React from 'react';
 import styles from './App.module.css';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import NavBar from "./NavBar";
 import Gallery from "./Gallery"
+import pictures from "../data/pictures"
 
 function App() {
     return (
         <div className={styles.App}>
-            <h1 className={styles.title}>Andrii Pilat</h1>
             <NavBar/>
-            <section className={styles.view}>
+            <div className={styles.view}>
                 <Router>
-                    <Route path={"/"} component={Gallery}/>
+                    <Route path={"/"}
+                           render={(props) => <Gallery {...props} pictures={pictures}/>}/>
                 </Router>
-            </section>
+            </div>
         </div>
     );
 }

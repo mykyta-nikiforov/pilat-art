@@ -1,31 +1,32 @@
 import React from "react";
 import styles from "./Gallery.module.css"
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ImageWithZoom} from 'pure-react-carousel';
+import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-
-
-function Gallery() {
+function Gallery({pictures}) {
     return (
         <div>
-            <CarouselProvider naturalSlideWidth={400}
-                              naturalSlideHeight={200}
-                              totalSlides={3}>
+            <CarouselProvider naturalSlideWidth={100}
+                              naturalSlideHeight={60}
+                              totalSlides={pictures.length}
+                              infinite={true}
+                              // isPlaying={true}
+                              // interval={10000}
+                              touchEnabled={true}>
+                <ButtonBack className={styles.button}>Previous</ButtonBack>{'/'}
+                <ButtonNext className={styles.button}>Next</ButtonNext>
                 <Slider className={styles.slider}>
-                    <Slide index={0}>
-                        <ImageWithZoom src="/pictures/1.jpg"/>
-                    </Slide>
-                    <Slide index={1}>
-                        <ImageWithZoom src="/pictures/2.jpg"/>
-                    </Slide>
-                    <Slide index={2}>
-                        <ImageWithZoom src="/pictures/1.jpg"/>
-                    </Slide>
+                    {pictures.map((item, i) => {
+                        return (
+                            <Slide index={i} key={i} className={styles.imageContainer}>
+                                    <Image src={item.src} hasMasterSpinner={true}/>
+                                    <div className={styles.description}>
+                                        <p><name>{item.name}</name>, {item.size}, {item.material}, {item.price}</p>
+                                    </div>
+                            </Slide>
+                        )
+                    })}
                 </Slider>
-
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
-
             </CarouselProvider>
         </div>
     )
