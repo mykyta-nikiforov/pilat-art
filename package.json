@@ -1,11 +1,16 @@
 {
   "name": "pilatart",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.17.0",
+    "npm": "6.11.3"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "heroku": "^7.39.1",
     "pure-react-carousel": "^1.26.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
