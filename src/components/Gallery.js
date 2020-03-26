@@ -48,12 +48,14 @@ export class Gallery extends Component {
                         Next
                     </button>
                     <span className={styles.status}>
-                        ({this.state.currentSlide + 1} picture from {pictures.length})
+                        ({this.state.currentSlide + 1} picture of {pictures.length})
                     </span>
                 </div>
                 <Carousel showArrows={false}
                           useKeyboardArrows
                           infiniteLoop
+                          autoPlay
+                          interval={4000}
                           showThumbs={false}
                           showIndicators={false}
                           selectedItem={this.state.currentSlide}
