@@ -1,0 +1,26 @@
+.carousel .slide {
+    background: none;
+    text-align: left;
+
+}
+
+.carousel .slide img {
+    max-height: 70vh;
+    width: auto;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .carousel .slide img {
+        max-height: 80vh;
+        max-width: 100%;
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .carousel .slide img {
+        pointer-events: none;
+    }
+}

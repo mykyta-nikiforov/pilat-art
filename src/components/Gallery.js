@@ -1,44 +1,82 @@
-import React from "react";
-import styles from "./Gallery.module.css"
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image} from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-import useWindowSize from '../hooks/useWindowSize'
+import React, {Component} from "react";
+import {Carousel} from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import styles from "./Gallery.module.css";
+import carouselStyles from "./Carousel.css";
 
-function Gallery({pictures}) {
-    let carouselWidth = 170;
-    let carouselHeight = 100;
-    const size = useWindowSize();
-    if (size.width < 1200) {
-        carouselWidth = 100;
-        carouselHeight = 175;
+export class Gallery extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentSlide: 0,
+        };
     }
-    return (
-        <div className={styles.carouselContainer}>
-            <CarouselProvider naturalSlideWidth={carouselWidth}
-                              naturalSlideHeight={carouselHeight}
-                              totalSlides={pictures.length}
-                              infinite={true}
-                              isPlaying={true}
-                              interval={3000}
-                              touchEnabled={true}
-            >
-                <ButtonBack className={styles.button}>Previous</ButtonBack>{'/'}
-                <ButtonNext className={styles.button}>Next</ButtonNext>
-                <Slider className={styles.slider}>
+
+    next = () => {
+        this.setState((state) => ({
+            currentSlide: state.currentSlide + 1,
+        }));
+    };
+
+    prev = () => {
+        this.setState((state) => ({
+            currentSlide: state.currentSlide - 1,
+        }));
+    };
+
+    updateCurrentSlide = (index) => {
+        const {currentSlide} = this.state;
+
+        if (currentSlide !== index) {
+            this.setState({
+                currentSlide: index,
+            });
+        }
+    };
+
+    render() {
+        let pictures = this.props.pictures;
+        return (
+            <div className={styles.NewGallery}>
+                <div>
+                    <button onClick={this.prev} className={styles.button}>
+                        Previous
+                    </button>/
+                    <button onClick={this.next} className={styles.button}>
+                        Next
+                    </button>
+                    <span className={styles.status}>
+                        ({this.state.currentSlide + 1} picture from {pictures.length})
+                    </span>
+                </div>
+                <Carousel showArrows={false}
+                          useKeyboardArrows
+                          infiniteLoop
+                          showThumbs={false}
+                          showIndicators={false}
+                          selectedItem={this.state.currentSlide}
+                          onClickItem={this.next}
+                          onChange={this.updateCurrentSlide}
+                          showStatus={false}
+                          className={styles.carousel}
+                >
                     {pictures.map((item, i) => {
                         return (
-                            <Slide index={i} key={i} className={styles.imageContainer}>
-                                <Image src={item.src} hasMasterSpinner={true}/>
+                            <div key={i}>
+                                <img src={item.src}/>
                                 <div className={styles.description}>
                                     <p><span>{item.name}</span>, {item.size}, {item.material}, {item.price}</p>
                                 </div>
-                            </Slide>
+                            </div>
                         )
                     })}
-                </Slider>
-            </CarouselProvider>
-        </div>
-    )
+                </Carousel>
+            </div>
+        )
+    }
+
 }
 
-export default Gallery
+export default Gallery;
