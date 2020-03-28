@@ -8,6 +8,7 @@ import {
 import NavBar from "./NavBar";
 import Gallery from "./Gallery"
 import pictures from "../data/pictures"
+import SocialLinksMenu from "./SocialLinksMenu";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     </Switch>
                 </Router>
             </div>
+            <SocialLinksMenu/>
         </div>
     );
 }

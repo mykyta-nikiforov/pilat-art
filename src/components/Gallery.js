@@ -78,7 +78,6 @@ export class Gallery extends Component {
             </div>
         )
     }
-
 }
 
 export default Gallery;
