@@ -12,7 +12,7 @@
     }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 600px), (max-width: 850px) {
     .SocialLinksMenu {
         left: 0;
         bottom: 0;
@@ -21,6 +21,7 @@
 }
 
 .icon {
+    background-color: white;
     width: 30px;
     margin: 0 5px;
 }
