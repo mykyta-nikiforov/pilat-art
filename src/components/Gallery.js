@@ -59,7 +59,6 @@ export class Gallery extends Component {
                           showThumbs={false}
                           showIndicators={false}
                           selectedItem={this.state.currentSlide}
-                          onClickItem={this.next}
                           onChange={this.updateCurrentSlide}
                           showStatus={false}
                           className={styles.carousel}
@@ -67,9 +66,14 @@ export class Gallery extends Component {
                     {pictures.map((item, i) => {
                         return (
                             <div key={i}>
-                                <img src={item.src}/>
+                                <img src={item.src} onClick={this.next}/>
                                 <div className={styles.description}>
-                                    <p><span>{item.name}</span>, {item.size}, {item.material}, {item.price}</p>
+                                    <p>
+                                        <span>{item.name && item.name + ', '}</span>
+                                        {item.size && item.size + ', '}
+                                        {item.material && item.material + ', '}
+                                        {item.price}
+                                    </p>
                                 </div>
                             </div>
                         )

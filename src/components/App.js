@@ -7,21 +7,29 @@ import {
 } from "react-router-dom";
 import NavBar from "./NavBar";
 import Gallery from "./Gallery"
-import pictures from "../data/pictures"
+import Contact from "./Contact"
+import gallery from "../data/gallery"
+import archive from "../data/archive"
 import SocialLinksMenu from "./SocialLinksMenu";
 
 function App() {
     return (
         <div>
-            <NavBar/>
-            <div className={styles.view}>
-                <Router>
-                    <Switch>
-                        <Route path={"/"}
-                               render={(props) => <Gallery {...props} pictures={pictures}/>}/>
-                    </Switch>
-                </Router>
-            </div>
+            <Router>
+                <div>
+                    <NavBar/>
+                    <div className={styles.view}>
+                        <Switch>
+                            <Route exact path="/"
+                                   render={(props) => <Gallery {...props} pictures={gallery}/>}/>
+                            <Route exact path="/archive"
+                                   render={(props) => <Gallery {...props} pictures={archive}/>}/>
+                            <Route exact path="/contact"
+                                   component={Contact}/>
+                        </Switch>
+                    </div>
+                </div>
+            </Router>
             <SocialLinksMenu/>
         </div>
     );

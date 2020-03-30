@@ -24,7 +24,7 @@ function SocialLinksMenu() {
         <div className={styles.SocialLinksMenu}>
             {links.map((item, i) => {
                 return(
-                    <a href={item.url} key={i}>
+                    <a href={item.url} target="_blank" key={i}>
                         <img src={item.icon} className={styles.icon}/>
                     </a>
                 )
