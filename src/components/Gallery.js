@@ -2,7 +2,10 @@ import React, {Component} from "react";
 import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./Gallery.module.css";
-import carouselStyles from "./Carousel.css";
+import InnerImageZoom from "react-inner-image-zoom";
+import carouselStyles from "../styles/Carousel.css";
+import imageZoomStyles from "../styles/ImageZoom.css";
+
 
 export class Gallery extends Component {
 
@@ -13,6 +16,12 @@ export class Gallery extends Component {
             currentSlide: 0,
         };
     }
+
+    componentWillReceiveProps = () => {
+        this.setState(() => ({
+            currentSlide: 0
+        }));
+    };
 
     next = () => {
         this.setState((state) => ({
@@ -43,7 +52,8 @@ export class Gallery extends Component {
                 <div>
                     <button onClick={this.prev} className={styles.button}>
                         Previous
-                    </button>/
+                    </button>
+                    /
                     <button onClick={this.next} className={styles.button}>
                         Next
                     </button>
@@ -54,7 +64,7 @@ export class Gallery extends Component {
                 <Carousel showArrows={false}
                           useKeyboardArrows
                           infiniteLoop
-                          autoPlay
+                    // autoPlay
                           interval={4000}
                           showThumbs={false}
                           showIndicators={false}
@@ -66,7 +76,10 @@ export class Gallery extends Component {
                     {pictures.map((item, i) => {
                         return (
                             <div key={i}>
-                                <img src={item.src} onClick={this.next}/>
+                                <div className={styles.imageContainer}>
+                                    <InnerImageZoom src={item.src}
+                                                    fullscreenOnMobile/>
+                                </div>
                                 <div className={styles.description}>
                                     <p>
                                         <span>{item.name && item.name + ', '}</span>
