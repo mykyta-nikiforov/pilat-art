@@ -9,7 +9,7 @@
     overflow: auto;
 }
 
-.navbar a:not(name){
+.navbar a:not(name) {
     display: block;
     padding: 6px 8px 6px 8px;
     text-decoration: none;
@@ -36,4 +36,20 @@
     .navbar {
         padding-top: 20px;
     }
+}
+
+.langBar {
+    padding: 20px 8px 6px 8px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    font-weight: bold;
+}
+
+.langBar label {
+    cursor: pointer;
 }
