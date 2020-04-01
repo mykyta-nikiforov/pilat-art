@@ -55,4 +55,6 @@ i18n.use(LanguageDetector).init({
     }
 });
 
+i18n.changeLanguage("en");
+
 export default i18n;
