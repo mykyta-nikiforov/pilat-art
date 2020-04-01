@@ -14,6 +14,7 @@ class NavBar extends Component {
         return (
             <div className={styles.navbar}>
                 <Link to="/" className={styles.name}>{t("Andrii Pilat")}</Link>
+                <Link to="/about">{t("About")}</Link>
                 <Link to="/">{t("Gallery")}</Link>
                 <Link to="/archive">{t("Archive")}</Link>
                 <Link to="/contact">{t("Contact")}</Link>

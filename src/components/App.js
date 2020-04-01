@@ -11,6 +11,7 @@ import Contact from "./Contact"
 import gallery from "../data/gallery"
 import archive from "../data/archive"
 import SocialLinksMenu from "./SocialLinksMenu";
+import About from "./About";
 
 function App() {
     return (
@@ -24,6 +25,8 @@ function App() {
                                    render={(props) => <Gallery {...props} pictures={gallery}/>}/>
                             <Route exact path="/archive"
                                    render={(props) => <Gallery {...props} pictures={archive}/>}/>
+                            <Route exact path="/about"
+                                   component={About}/>
                             <Route exact path="/contact"
                                    component={Contact}/>
                         </Switch>

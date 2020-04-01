@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import styles from "./Contact.module.css"
 import {withTranslation} from "react-i18next";
 
-
 class Contact extends Component {
     render() {
         const {t} = this.props;
