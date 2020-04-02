@@ -11,7 +11,6 @@ import carouselStyles from "../styles/Carousel.css";
 import imageZoomStyles from "../styles/ImageZoom.css";
 import {withTranslation} from "react-i18next";
 import email from "../data/email";
-import {isMobile} from 'react-device-detect';
 
 
 export class Gallery extends Component {
@@ -64,8 +63,8 @@ export class Gallery extends Component {
                 {this.getNavigationButtons(pictures, t)}
                 <Carousel showArrows={false}
                           useKeyboardArrows
-                          infiniteLoop={!isMobile}
-                          swipeScrollTolerance={70}
+                          infiniteLoop
+                          swipeable={false}
                           autoPlay
                           interval={4000}
                           showThumbs={false}
