@@ -19,7 +19,8 @@ export class Gallery extends Component {
         super(props);
         this.state = {
             pictures: props.pictures,
-            currentSlide: 0
+            currentSlide: 0,
+            autoPlay: true
         };
     }
 
@@ -36,12 +37,14 @@ export class Gallery extends Component {
     next = () => {
         this.setState((state) => ({
             currentSlide: state.currentSlide + 1,
+            autoPlay: false
         }));
     };
 
     prev = () => {
         this.setState((state) => ({
             currentSlide: state.currentSlide - 1,
+            autoPlay: false
         }));
     };
 
@@ -65,7 +68,7 @@ export class Gallery extends Component {
                           useKeyboardArrows
                           infiniteLoop
                           swipeable={false}
-                          autoPlay
+                          autoPlay={this.state.autoPlay}
                           interval={4000}
                           showThumbs={false}
                           showIndicators={false}
