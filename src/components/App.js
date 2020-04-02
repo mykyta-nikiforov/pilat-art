@@ -22,7 +22,7 @@ function App() {
                     <div className={styles.view}>
                         <Switch>
                             <Route exact path="/"
-                                   render={(props) => <Gallery {...props} pictures={gallery}/>}/>
+                                   render={(props) => <Gallery {...props} pictures={gallery} sale/>}/>
                             <Route exact path="/archive"
                                    render={(props) => <Gallery {...props} pictures={archive}/>}/>
                             <Route exact path="/about"

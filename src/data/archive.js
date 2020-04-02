@@ -4,11 +4,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х80",
         price: "$100",
-        en: {
-            name: "Number 2",
-        },
-        uk: {
-            name: "Номер 2",
+        name: {
+            en: "Number 2",
+            uk: "Номер 2"
         }
     },
     {
@@ -16,11 +14,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х200",
         price: "$200",
-        en: {
-            name: "Number 3",
-        },
-        uk: {
-            name: "Номер 3",
+        name: {
+            en: "Number 3",
+            uk: "Номер 3"
         }
     },
     {
@@ -28,11 +24,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "80х120",
         price: "$200",
-        en: {
-            name: "Number 4",
-        },
-        uk: {
-            name: "Номер 4",
+        name: {
+            en: "Number 4",
+            uk: "Номер 4"
         }
     },
     {
@@ -40,11 +34,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "150х50",
         price: "456 ₴",
-        en: {
-            name: "Number 5",
-        },
-        uk: {
-            name: "Номер 5",
+        name: {
+            en: "Number 5",
+            uk: "Номер 5"
         }
     },
     {
@@ -52,11 +44,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х120",
         price: "$300",
-        en: {
-            name: "Number 6",
-        },
-        uk: {
-            name: "Номер 6",
+        name: {
+            en: "Number 6",
+            uk: "Номер 6"
         }
     },
     {
@@ -64,11 +54,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х80",
         price: "$200",
-        en: {
-            name: "Number 7",
-        },
-        uk: {
-            name: "Номер 7",
+        name: {
+            en: "Number 7",
+            uk: "Номер 7"
         }
     },
     {
@@ -76,11 +64,9 @@ const archive = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х50",
         price: "$400",
-        en: {
-            name: "Number 8",
-        },
-        uk: {
-            name: "Номер 8",
+        name: {
+            en: "Number 8",
+            uk: "Номер 8"
         }
     },
     {

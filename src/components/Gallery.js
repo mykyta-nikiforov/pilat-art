@@ -10,6 +10,7 @@ import carouselStyles from "../styles/Carousel.css";
 // noinspection ES6UnusedImports
 import imageZoomStyles from "../styles/ImageZoom.css";
 import {withTranslation} from "react-i18next";
+import email from "../data/email";
 
 
 export class Gallery extends Component {
@@ -98,8 +99,8 @@ export class Gallery extends Component {
     mapPicturesToSlides(pictures, t) {
         return pictures.map((item, i) => {
             let currentLang = this.props.i18n.language;
-            // get item.[en/uk].name
-            let pictureName = item[currentLang] && item[currentLang].name;
+            // get item.name.[en/uk]
+            let pictureName = item.name && item.name[currentLang];
             return (
                 <div key={i}>
                     <div className={styles.imageContainer}>
@@ -113,10 +114,20 @@ export class Gallery extends Component {
                             {item.material && t(item.material)}
                             {item.price && ', ' + item.price}
                         </p>
+                        {this.props.sale && this.buildBuyButton(item, pictureName, t)}
                     </div>
                 </div>
             )
         });
+    }
+
+    buildBuyButton(item, pictureName, t) {
+        let subject = `${t("EmailSubject")} “${pictureName}“`;
+        let emailContent = `${t("EmailBody")} “${pictureName}“.`;
+        return <a href={`mailto:?to=${email}&subject=${subject}&body=${emailContent}`}
+                  className={styles.buyButton}>
+            {t("Buy")}
+        </a>;
     }
 }
 

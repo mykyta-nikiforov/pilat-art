@@ -4,11 +4,9 @@ const gallery = [
         size: "120х160",
         price: "$150",
         material: "plastic bags LDPE4/HDPE2",
-        en: {
-            name: "Diptych",
-        },
-        uk: {
-            name: "Діптих",
+        name: {
+            en: "Diptych",
+            uk: "Діптих"
         }
     },
     {
@@ -16,11 +14,9 @@ const gallery = [
         material: "plastic bags LDPE4/HDPE2",
         size: "120х80",
         price: "$100",
-        en: {
-            name: "Number 1",
-        },
-        uk: {
-            name: "Номер 1",
+        name: {
+            en: "Number 1",
+            uk: "Номер 1"
         }
     }
 ];

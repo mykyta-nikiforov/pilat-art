@@ -18,6 +18,9 @@ i18n.use(LanguageDetector).init({
                 "Ukraine, Chernivtsi": "Ukraine, Chernivtsi",
                 "plastic bags LDPE4/HDPE2": "plastic bags LDPE4/HDPE2",
                 "cm": "cm",
+                EmailSubject: "Buying picture",
+                EmailBody: "Hi Andrii! I want to buy your picture",
+                Buy: "Buy",
                 About: "About",
                 AboutContent1: "I see the field but it is unrecognizable; it is polluted rather than filled with. " +
                     "There is too much of “too much”, the moments are fading; so we are, turning anything to a wasting " +
@@ -50,6 +53,9 @@ i18n.use(LanguageDetector).init({
                 "Ukraine, Chernivtsi": "Україна, Чернівці",
                 "plastic bags LDPE4/HDPE2": "пластикові пакети LDPE4/HDPE2",
                 "cm": "см",
+                EmailSubject: "Покупка картини",
+                EmailBody: "Привіт, Андрій! Хочу придбати твою картину",
+                Buy: "Купити",
                 About: "Про картини",
                 AboutContent1: "Я бачу простір, але його важко помітити, він засмічений, але ненасичений. Забагато “забагато”, де\n" +
                     "                    розчиняються моменти, і ми самі, перетворюючи на сміттєзвалище будь-що, не встигаючи навіть це\n" +
