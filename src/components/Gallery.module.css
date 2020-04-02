@@ -7,6 +7,10 @@
     cursor: pointer;
 }
 
+button:active{
+    color: #858585;
+}
+
 .status {
     margin-left: 18px;
     color: #858585;

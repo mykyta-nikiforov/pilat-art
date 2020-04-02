@@ -60,7 +60,7 @@ export class Gallery extends Component {
         return (
             <div className={styles.NewGallery}>
                 {this.getNavigationButtons(pictures, t)}
-                <Carousel showArrows={true}
+                <Carousel showArrows={false}
                           useKeyboardArrows
                           infiniteLoop
                           autoPlay
