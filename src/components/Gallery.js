@@ -1,14 +1,7 @@
 import React, {Component} from "react";
-import {Carousel} from "react-responsive-carousel";
+import Slider from "react-slick";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./Gallery.module.css";
-import InnerImageZoom from "react-inner-image-zoom";
-// eslint-disable-next-line no-unused-vars
-// noinspection ES6UnusedImports
-import carouselStyles from "../styles/Carousel.css";
-// eslint-disable-next-line no-unused-vars
-// noinspection ES6UnusedImports
-import imageZoomStyles from "../styles/ImageZoom.css";
 import {withTranslation} from "react-i18next";
 import email from "../data/email";
 
@@ -20,7 +13,6 @@ export class Gallery extends Component {
         this.state = {
             pictures: props.pictures,
             currentSlide: 0,
-            autoPlay: true
         };
     }
 
@@ -31,21 +23,14 @@ export class Gallery extends Component {
                 currentSlide: 0
             }));
         }
-
     };
 
     next = () => {
-        this.setState((state) => ({
-            currentSlide: state.currentSlide + 1,
-            autoPlay: false
-        }));
+        this.slider.slickNext();
     };
 
     prev = () => {
-        this.setState((state) => ({
-            currentSlide: state.currentSlide - 1,
-            autoPlay: false
-        }));
+        this.slider.slickPrev();
     };
 
     updateCurrentSlide = (index) => {
@@ -62,25 +47,19 @@ export class Gallery extends Component {
         let pictures = this.state.pictures;
         const {t} = this.props;
         return (
-            <div className={styles.NewGallery}>
+            <div className={styles.Gallery}>
                 {this.getNavigationButtons(pictures, t)}
-                <Carousel showArrows={false}
-                          useKeyboardArrows
-                          infiniteLoop
-                          swipeable={false}
-                          autoPlay={this.state.autoPlay}
-                          interval={4000}
-                          showThumbs={false}
-                          showIndicators={false}
-                          selectedItem={this.state.currentSlide}
-                          onChange={this.updateCurrentSlide}
-                          showStatus={false}
-                          className={styles.carousel}
+                <Slider ref={slider => (this.slider = slider)}
+                        infinite={true}
+                        speed={500}
+                        afterChange={this.updateCurrentSlide}
+                        slidesToShow={1}
+
                 >
                     {
                         this.mapPicturesToSlides(pictures, t)
                     }
-                </Carousel>
+                </Slider>
             </div>
         )
     }
@@ -108,8 +87,7 @@ export class Gallery extends Component {
             return (
                 <div key={i}>
                     <div className={styles.imageContainer}>
-                        <InnerImageZoom src={item.src}
-                                        fullscreenOnMobile/>
+                        <img src={item.src}/>
                     </div>
                     <div className={styles.description}>
                         <p>
