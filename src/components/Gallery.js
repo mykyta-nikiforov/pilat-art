@@ -4,6 +4,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./Gallery.module.css";
 import {withTranslation} from "react-i18next";
 import email from "../data/email";
+import 'react-image-lightbox/style.css';
+import Lightbox from "react-image-lightbox";
+import InnerImageZoom from "react-inner-image-zoom";
+import {isMobile} from 'react-device-detect';
+// eslint-disable-next-line no-unused-vars
+// noinspection ES6UnusedImports
+import imageZoomStyles from '../styles/ImageZoom.css'
 
 
 export class Gallery extends Component {
@@ -13,6 +20,7 @@ export class Gallery extends Component {
         this.state = {
             pictures: props.pictures,
             currentSlide: 0,
+            lightBox: false
         };
     }
 
@@ -43,8 +51,22 @@ export class Gallery extends Component {
         }
     };
 
+    handleClickImage = (e) => {
+        e && e.preventDefault();
+        this.setState({
+            lightBox: true
+        })
+    };
+
+    handleCloseModal = (e) => {
+        e && e.preventDefault();
+        this.setState({
+            lightBox: false
+        })
+    };
+
     render() {
-        let pictures = this.state.pictures;
+        let {pictures, currentSlide, lightBox} = this.state;
         const {t} = this.props;
         return (
             <div className={styles.Gallery}>
@@ -54,12 +76,21 @@ export class Gallery extends Component {
                         speed={500}
                         afterChange={this.updateCurrentSlide}
                         slidesToShow={1}
+                        arrows={false}>
 
-                >
                     {
                         this.mapPicturesToSlides(pictures, t)
                     }
                 </Slider>
+                {isMobile && lightBox &&
+                <Lightbox
+                    mainSrc={pictures[currentSlide].src}
+                    // nextSrc={pictures[(currentSlide + 1) % pictures.length].src}
+                    // prevSrc={pictures[(currentSlide + pictures.length - 1) % pictures.length].src}
+                    onCloseRequest={this.handleCloseModal}
+                />
+                }
+
             </div>
         )
     }
@@ -86,8 +117,10 @@ export class Gallery extends Component {
             let pictureName = item.name && item.name[currentLang];
             return (
                 <div key={i}>
-                    <div className={styles.imageContainer}>
-                        <img src={item.src}/>
+                    <div onClick={e => this.handleClickImage(e)}>
+                        {/*<img src={item.src}/>*/}
+                        <InnerImageZoom src={item.src}
+                                        fullscreenOnMobile/>
                     </div>
                     <div className={styles.description}>
                         <p>
