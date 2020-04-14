@@ -80,7 +80,7 @@ export class Gallery extends Component {
                 {lightBox &&
                 <Lightbox
                     mainSrc={pictures[currentSlide].src}
-                    imagePadding={55}
+                    imagePadding={isMobile ? 0 : 55}
                     onCloseRequest={(e) => this.setIsOpenLightbox(e, false)}
                 />
                 }
