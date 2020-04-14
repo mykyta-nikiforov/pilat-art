@@ -21,9 +21,11 @@ function App() {
                     <NavBar/>
                     <div className={styles.view}>
                         <Switch>
-                            <Route exact path="/"
+                            <Route
+                                   key={"gallery"} exact path="/"
                                    render={(props) => <Gallery {...props} pictures={gallery} sale/>}/>
-                            <Route exact path="/archive"
+                            <Route
+                                key={"archive"} exact path="/archive"
                                    render={(props) => <Gallery {...props} pictures={archive}/>}/>
                             <Route exact path="/about"
                                    component={About}/>

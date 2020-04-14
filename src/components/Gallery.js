@@ -6,12 +6,7 @@ import {withTranslation} from "react-i18next";
 import email from "../data/email";
 import 'react-image-lightbox/style.css';
 import Lightbox from "react-image-lightbox";
-import InnerImageZoom from "react-inner-image-zoom";
 import {isMobile} from 'react-device-detect';
-// eslint-disable-next-line no-unused-vars
-// noinspection ES6UnusedImports
-import imageZoomStyles from '../styles/ImageZoom.css'
-
 
 export class Gallery extends Component {
 
@@ -20,6 +15,7 @@ export class Gallery extends Component {
         this.state = {
             pictures: props.pictures,
             currentSlide: 0,
+            autoplay: true,
             lightBox: false
         };
     }
@@ -30,6 +26,7 @@ export class Gallery extends Component {
                 pictures: props.pictures,
                 currentSlide: 0
             }));
+
         }
     };
 
@@ -41,27 +38,23 @@ export class Gallery extends Component {
         this.slider.slickPrev();
     };
 
-    updateCurrentSlide = (index) => {
+    updateCurrentSlide = (oldIndex, index) => {
         const {currentSlide} = this.state;
 
-        if (currentSlide !== index) {
-            this.setState({
-                currentSlide: index,
-            });
-        }
+        this.setState({
+            currentSlide: index,
+        });
+        // if (currentSlide !== index) {
+        //     this.setState({
+        //         currentSlide: index,
+        //     });
+        // }
     };
 
-    handleClickImage = (e) => {
-        e && e.preventDefault();
+    setIsOpenLightbox = (e, value) => {
         this.setState({
-            lightBox: true
-        })
-    };
-
-    handleCloseModal = (e) => {
-        e && e.preventDefault();
-        this.setState({
-            lightBox: false
+            lightBox: value,
+            autoplay: !value
         })
     };
 
@@ -73,24 +66,24 @@ export class Gallery extends Component {
                 {this.getNavigationButtons(pictures, t)}
                 <Slider ref={slider => (this.slider = slider)}
                         infinite={true}
+                        initialSlide={0}
                         speed={500}
-                        afterChange={this.updateCurrentSlide}
-                        slidesToShow={1}
-                        arrows={false}>
-
+                        autoplay={this.state.autoplay}
+                        autoplaySpeed={4000}
+                        beforeChange={this.updateCurrentSlide}
+                        arrows={false}
+                        swipe={isMobile}>
                     {
                         this.mapPicturesToSlides(pictures, t)
                     }
                 </Slider>
-                {isMobile && lightBox &&
+                {lightBox &&
                 <Lightbox
                     mainSrc={pictures[currentSlide].src}
-                    // nextSrc={pictures[(currentSlide + 1) % pictures.length].src}
-                    // prevSrc={pictures[(currentSlide + pictures.length - 1) % pictures.length].src}
-                    onCloseRequest={this.handleCloseModal}
+                    imagePadding={55}
+                    onCloseRequest={(e) => this.setIsOpenLightbox(e, false)}
                 />
                 }
-
             </div>
         )
     }
@@ -116,11 +109,9 @@ export class Gallery extends Component {
             // get item.name.[en/uk]
             let pictureName = item.name && item.name[currentLang];
             return (
-                <div key={i}>
-                    <div onClick={e => this.handleClickImage(e)}>
-                        {/*<img src={item.src}/>*/}
-                        <InnerImageZoom src={item.src}
-                                        fullscreenOnMobile/>
+                <div key={i} className={styles.unselectable}>
+                    <div onClick={(e) => this.setIsOpenLightbox(e, true)} className={styles.clickable}>
+                        <img src={item.src} alt={""}/>
                     </div>
                     <div className={styles.description}>
                         <p>

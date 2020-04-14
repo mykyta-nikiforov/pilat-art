@@ -45,3 +45,11 @@ button:active{
     outline: 0;
     outline: none;
 }
+
+.unselectable {
+    user-select: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
