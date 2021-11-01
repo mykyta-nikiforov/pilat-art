@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Codec-Pro-Ultra-trial';
+ src: url('icons/Codec-Pro-Ultra-trial.ttf')  format('truetype'); /* Safari, Android, iOS */
+}

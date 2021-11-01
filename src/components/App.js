@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './App.module.css';
 import {
     BrowserRouter as Router,
@@ -8,14 +8,33 @@ import {
 import NavBar from "./NavBar";
 import Gallery from "./Gallery"
 import Contact from "./Contact"
-import gallery from "../data/gallery.json"
-import archive from "../data/archive.json"
 import SocialLinksMenu from "./SocialLinksMenu";
 import About from "./About";
 
+const archiveJsonUrl = 'https://firebasestorage.googleapis.com/v0/b/andriipilat-43e8e.appspot.com/o/archive.json?alt=media';
+const galleryJsonUrl = 'https://firebasestorage.googleapis.com/v0/b/andriipilat-43e8e.appspot.com/o/gallery.json?alt=media';
+
 function App() {
+    const [archive, setArchive] = useState(null);
+    const [gallery, setGallery] = useState(null);
+    useEffect(() => {
+        (async () => {
+            const response = await fetch(archiveJsonUrl);
+            const gson = await response.json();
+            setArchive(gson);
+        })();
+    }, []);
+    useEffect(() => {
+        (async () => {
+            const response = await fetch(galleryJsonUrl);
+            const gson = await response.json();
+            setGallery(gson);
+        })();
+    }, [])
+
+
     return (
-        <div>
+        gallery && archive && <div>
             <Router>
                 <div>
                     <NavBar/>

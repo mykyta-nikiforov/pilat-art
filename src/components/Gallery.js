@@ -80,7 +80,7 @@ export class Gallery extends Component {
                 {lightBox &&
                 <Lightbox
                     toolbarButtons={[]}
-                    mainSrc={pictures[currentSlide].src}
+                    mainSrc={this.getImageUrl(pictures[currentSlide].src)}
                     imagePadding={isMobile ? 0 : 55}
                     onCloseRequest={(e) => this.setIsOpenLightbox(e, false)}
                 />
@@ -112,7 +112,7 @@ export class Gallery extends Component {
             return (
                 <div key={i} className={styles.unselectable}>
                     <div onClick={(e) => this.setIsOpenLightbox(e, true)} className={styles.clickable}>
-                        <img src={item.src} alt={""}/>
+                        <img src={this.getImageUrl(item.src)} alt={""}/>
                     </div>
                     <div className={styles.description}>
                         <p>
@@ -135,6 +135,10 @@ export class Gallery extends Component {
                   className={styles.buyButton}>
             {t("Buy")}
         </a>;
+    }
+
+    getImageUrl(src) {
+        return "https://firebasestorage.googleapis.com/v0/b/andriipilat-43e8e.appspot.com/o/" + src.replace("/", "%2F") + "?alt=media";
     }
 }
 
