@@ -13,7 +13,7 @@ export class Gallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pictures: props.pictures,
+            pictures: props.pictures.images,
             currentSlide: 0,
             autoplay: true,
             lightBox: false
@@ -21,9 +21,9 @@ export class Gallery extends Component {
     }
 
     componentWillReceiveProps = (props) => {
-        if (JSON.stringify(this.state.pictures) !== JSON.stringify(props.pictures)) {
+        if (JSON.stringify(this.state.pictures) !== JSON.stringify(props.pictures.images)) {
             this.setState(() => ({
-                pictures: props.pictures,
+                pictures: props.pictures.images,
                 currentSlide: 0
             }));
 
@@ -79,6 +79,7 @@ export class Gallery extends Component {
                 </Slider>
                 {lightBox &&
                 <Lightbox
+                    toolbarButtons={[]}
                     mainSrc={pictures[currentSlide].src}
                     imagePadding={isMobile ? 0 : 55}
                     onCloseRequest={(e) => this.setIsOpenLightbox(e, false)}

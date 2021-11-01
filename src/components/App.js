@@ -8,8 +8,8 @@ import {
 import NavBar from "./NavBar";
 import Gallery from "./Gallery"
 import Contact from "./Contact"
-import gallery from "../data/gallery"
-import archive from "../data/archive"
+import gallery from "../data/gallery.json"
+import archive from "../data/archive.json"
 import SocialLinksMenu from "./SocialLinksMenu";
 import About from "./About";
 
