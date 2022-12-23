@@ -1,0 +1,112 @@
+{
+  "images": [
+    {
+      "src": "gallery/Khvylovy.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Khvylovy",
+        "uk": "Хвильовий"
+      }
+    },
+    {
+      "src": "gallery/Хоткевич.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Khotkevych",
+        "uk": "Хоткевич"
+      }
+    },
+    {
+      "src": "gallery/Примаченко.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Prymachenko",
+        "uk": "Примаченко"
+      }
+    },
+    {
+      "src": "gallery/Сковорода.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Skovoroda",
+        "uk": "Сковорода"
+      }
+    },
+    {
+      "src": "gallery/Донцов.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Dontsov",
+        "uk": "Донцов"
+      }
+    },
+    {
+      "src": "gallery/Симоненко.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Symonenko",
+        "uk": "Симоненко"
+      }
+    },
+    {
+      "src": "gallery/Krychevsky.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Krychevsky",
+        "uk": "Кричевський"
+      }
+    },
+    {
+      "src": "gallery/Євшан.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Yevshan",
+        "uk": "Євшан"
+      }
+    },
+    {
+      "src": "gallery/Стус.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Stus",
+        "uk": "Стус"
+      }
+    },
+    {
+      "src": "gallery/Шухевич.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Shukhevych",
+        "uk": "Шухевич"
+      }
+    },
+    {
+      "src": "gallery/Федун.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Fedun",
+        "uk": "Федун"
+      }
+    },
+    {
+      "src": "gallery/Косинка.jpg",
+      "size": "30х45",
+      "price": "135 ₴",
+      "name": {
+        "en": "Kosynka",
+        "uk": "Косинка"
+      }
+    }
+  ]
+}

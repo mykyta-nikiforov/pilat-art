@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "andriipilat-43e8e",
-    "public": "build",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
