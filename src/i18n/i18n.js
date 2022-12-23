@@ -8,7 +8,7 @@ i18n.use(LanguageDetector).init({
         en: {
             translations: {
                 "Andrii Pilat": "Andrii Pilat",
-                Gallery: "Gallery",
+                Gallery: "“Postati”",
                 Archive: "Archive",
                 Contact: "Contact",
                 Previous: "Previous",
@@ -43,7 +43,7 @@ i18n.use(LanguageDetector).init({
         uk: {
             translations: {
                 "Andrii Pilat": "Андрій Пілат",
-                Gallery: "Галерея",
+                Gallery: "«Постаті»",
                 Archive: "Архів",
                 Contact: "Контакти",
                 Previous: "Попередня",

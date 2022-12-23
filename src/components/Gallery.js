@@ -117,8 +117,8 @@ export class Gallery extends Component {
                     <div className={styles.description}>
                         <p>
                             <span>{pictureName && pictureName + ', '}</span>
-                            {item.size && `${item.size} ${t("cm")}, `}
-                            {item.material && t(item.material)}
+                            {item.size && `${item.size} ${t("cm")}`}
+                            {item.material && ', ' + t(item.material)}
                             {item.price && ', ' + item.price}
                         </p>
                         {this.props.sale && this.buildBuyButton(item, pictureName, t)}
